@@ -16,6 +16,26 @@ public class MainProg extends BuildAndCompute
     }
     public static void main(String args[]) 
     {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainProg.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainProg.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainProg.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainProg.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() 
         {
             public void run() 
@@ -147,7 +167,7 @@ class BuildAndCompute extends javax.swing.JFrame
         }
         if(b1 == "O" && b2 == "O" && b3 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton1.setBackground(Color.YELLOW);
@@ -157,7 +177,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b4 == "O" && b5 == "O" && b6 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton4.setBackground(Color.YELLOW);
@@ -167,7 +187,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b7 == "O" && b8 == "O" && b9 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton7.setBackground(Color.YELLOW);
@@ -177,7 +197,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b1 == "O" && b4 == "O" && b7 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton1.setBackground(Color.MAGENTA);
@@ -187,7 +207,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b2 == "O" && b5 == "O" && b8 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton2.setBackground(Color.MAGENTA);
@@ -197,7 +217,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b3 == "O" && b6 == "O" && b9 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton3.setBackground(Color.MAGENTA);
@@ -207,7 +227,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b1 == "O" && b5 == "O" && b9 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton1.setBackground(Color.CYAN);
@@ -217,7 +237,7 @@ class BuildAndCompute extends javax.swing.JFrame
         
         if(b3 == "O" && b5 == "O" && b7 == "O")
         {
-            JOptionPane.showMessageDialog(this, "Player X wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Player O wins", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
             oCount++;
             gameScore();
             jButton3.setBackground(Color.CYAN);
@@ -470,15 +490,19 @@ class BuildAndCompute extends javax.swing.JFrame
     }
 
     public JFrame frame;
+
     public void jbtnExitActionPerformed(java.awt.event.ActionEvent evt) 
-    {                                         
+    {
         frame = new JFrame("Exit");
-        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Tic Tac Toe", 
-            JOptionPane.YES_NO_OPTION    )== JOptionPane.YES_NO_OPTION);
+
+        
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        if(JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Tic Tac Toe",             JOptionPane.YES_OPTION    )== JOptionPane.YES_OPTION);
         {
             System.exit(0);
         }
-    }                                        
+        
+    }
 
     public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         
